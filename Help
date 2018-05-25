@@ -1,0 +1,24 @@
+Help
+All of the help you will possibily need in Duanaweather. 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Duanaweather: Newest production of Sam Duan's Backyard Electronics (as of March 2018), provides you with weather and time but using half of your system resources. 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Arguments           Usage
+_________________________________________________________
+-h                  Gets you to this help page.
+ 
+-vd [City] [State]	Starts up a virtual display that 
+                    displays the time and weather in 
+                    the given city. Can't debug the 
+                    city yet. The State will be the 
+                    2-letter abbreviations. If there 
+                    are more than 1 word in the city 
+                    name, connect them with undersc-
+                    ores. 
+-oled               Starts displaying on the attached
+                    I2C display on a Raspberry Pi. 
+                    Currently only "Next Block" is 
+                    supported. 
+
+-[anything else]	You get laughed at. 

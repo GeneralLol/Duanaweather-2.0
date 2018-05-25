@@ -1,0 +1,39 @@
+import moduleslib as modules
+import os, sys
+from multiprocessing import Process
+
+cache_dir = 'cache/cache'
+
+def refresh():
+    while True:
+
+        date_time = modules.time()
+        date = date_time[0]
+        time = date_time[1]
+        weather_temperature = modules.weather('Manchester', 'NH')
+        weather = weather_temperature[0]
+        temperature = weather_temperature[1]
+        city = 'Manchester'
+        state = 'NH'
+        block_refresh = modules.calendar()
+        block = block_refresh[0]
+        refresh = block_refresh[0]
+
+        cache_content = date + '\n' + time + '\n' + city + '\n' + state + '\n' + weather + '\n' + temperature + '\n' + block
+
+        try:
+            os.remove(cache_dir)
+        except:
+            pass
+
+        cache_file = open(cache_dir, 'w+')
+        cache_file.write(cache_content)
+        cache_file.close()
+
+def display():
+    display_stat = modules.display.virtualDisplay()
+    if display_stat == 'quit':
+        sys.exit()
+
+Process(target = refresh).start()
+Process(target = display).start()
